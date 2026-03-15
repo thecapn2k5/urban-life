@@ -25,6 +25,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.png', 'apple-touch-icon-v2.png', 'icons.svg'],
       manifest: {
+        id: '/urban-life/',
         name: 'Urban Life',
         short_name: 'Urban Life',
         description: 'Secure, local-first note-taking app.',
@@ -40,6 +41,12 @@ export default defineConfig({
             sizes: '192x192',
             type: 'image/png',
             purpose: 'any'
+          },
+          {
+            src: 'pwa-192x192-v2.png',
+            sizes: '192x192',
+            type: 'image/png',
+            purpose: 'maskable'
           },
           {
             src: 'pwa-512x512-v2.png',
