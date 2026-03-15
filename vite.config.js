@@ -33,6 +33,15 @@ export default defineConfig({
         background_color: '#fdfbf7',
         display: 'standalone',
         orientation: 'portrait',
+        categories: ['productivity', 'utilities'],
+        shortcuts: [
+          {
+            name: 'New Note',
+            short_name: 'New',
+            url: '/urban-life/',
+            icons: [{ src: 'pwa-192x192-v2.png', sizes: '192x192' }]
+          }
+        ],
         start_url: '/urban-life/',
         scope: '/urban-life/',
         icons: [
