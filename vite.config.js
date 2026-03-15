@@ -3,18 +3,21 @@ import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 import fs from 'fs'
 
+const hasCert = fs.existsSync('./localhost+3-key.pem') && fs.existsSync('./localhost+3.pem')
+
 export default defineConfig({
+  base: '/urban-life/',
   server: {
-    https: {
+    https: hasCert ? {
       key: fs.readFileSync('./localhost+3-key.pem'),
       cert: fs.readFileSync('./localhost+3.pem'),
-    },
+    } : false,
   },
   preview: {
-    https: {
+    https: hasCert ? {
       key: fs.readFileSync('./localhost+3-key.pem'),
       cert: fs.readFileSync('./localhost+3.pem'),
-    },
+    } : false,
   },
   plugins: [
     react(),
@@ -29,8 +32,8 @@ export default defineConfig({
         background_color: '#fdfbf7',
         display: 'standalone',
         orientation: 'portrait',
-        start_url: '/',
-        scope: '/',
+        start_url: '/urban-life/',
+        scope: '/urban-life/',
         icons: [
           {
             src: 'pwa-192x192-v2.png',
